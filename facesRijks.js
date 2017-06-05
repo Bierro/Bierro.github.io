@@ -36,10 +36,51 @@ var ratioAroundHead = 1.8;
 var numberOfDistanceRelations = 30;
 var numberOfFriendsInTab = 4;
 
-//Search the whole collection and display the iceberg at the end
-//advSearch(searchUrl);
 
-StartFacebook();
+
+$(document).ready(function() {
+   /* HEADER LEFT: TITLE & DESCRIPTION DROP DOWN */
+   // start hidden
+   $(".caret_closed").hide();
+   // hide description drop down
+   $(".caret_expanded").click(function() {
+      $(".caret_expanded").hide();
+      $(".caret_closed").show();
+      $(".pageDescription").slideToggle("slow", function() {});
+   });
+   // drop down
+   $(".caret_closed" ).click(function() {
+      $(".caret_closed").hide();
+      $(".caret_expanded").show();
+      $(".pageDescription").slideToggle("slow", function() {});
+   });
+
+
+   /* HEADER RIGHT: HAMBURGER NAVIGATION MENU */
+   // start hidden
+   $(".cross").hide();
+   $(".menu").hide();
+   // drop down
+   $(".hamburger" ).click(function() {
+      $('.hamburger').fadeOut(300, function(){
+         $('.cross').fadeIn(300);
+         $(".menu").slideToggle("slow", function() {});                      
+      });
+   });
+   // hide again
+   $(".cross").click(function() {
+      $(".menu").slideToggle("slow", function() {
+         $(".cross").hide();
+         $(".hamburger").show();
+      });
+   });
+
+  //Search the whole collection and display the iceberg at the end
+  //advSearch(searchUrl);
+
+  StartFacebook();
+   
+});
 
 function StartFacebook(){
   if (collectionData.collection == null){
@@ -370,4 +411,11 @@ function getFaceById(faceId) {
   return facesData.filter(
       function(element){ return element.faceId == faceId }
   );
+}
+
+
+// When the user clicks on <div>, open the popup
+function learnMorePopup() {
+    var popup = document.getElementById("learnFaces");
+    popup.classList.toggle("hidden");
 }
