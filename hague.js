@@ -102,13 +102,6 @@ var painters = [//Wikipedia Forerunners
                 ];
 
 
-d3.json(colorsDataUrl, function (json) {
-  console.log("COLORS DATA");
-  console.log(json);
-  colorsData = json;
-  console.log(getColorById(colorsData, "sk-a-4197")[0].colors);
-});
-
 function getColorById(colorArray,id) {
   return colorArray.filter(
       function(element){
@@ -119,6 +112,13 @@ function getColorById(colorArray,id) {
 
 
 $(document).ready(function() {
+  d3.json(colorsDataUrl, function (json) {
+    console.log("COLORS DATA");
+    console.log(json);
+    colorsData = json;
+    console.log(getColorById(colorsData, "sk-a-4197")[0].colors);
+  });
+
   d3.select("#paintingTitle").style("color", "black");
   d3.select("#paintingArtist").style("color", "black");
 
