@@ -112,6 +112,7 @@ function getColorById(colorArray,id) {
 
 
 $(document).ready(function() {
+  console.log("Looking for colors");
   d3.json(colorsDataUrl, function (json) {
     console.log("COLORS DATA");
     console.log(json);
