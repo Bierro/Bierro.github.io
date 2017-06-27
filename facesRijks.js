@@ -42,11 +42,13 @@ $(document).ready(function() {
    /* HEADER LEFT: TITLE & DESCRIPTION DROP DOWN */
    // start hidden
    $(".caret_closed").hide();
+   $(".pageDescription").hide();
    // hide description drop down
    $(".caret_expanded").click(function() {
       $(".caret_expanded").hide();
       $(".caret_closed").show();
       $(".pageDescription").slideToggle("slow", function() {});
+      $(".information").css("color", "white");
    });
    // drop down
    $(".caret_closed" ).click(function() {
@@ -64,7 +66,7 @@ $(document).ready(function() {
    $(".hamburger" ).click(function() {
       $('.hamburger').fadeOut(300, function(){
          $('.cross').fadeIn(300);
-         $(".menu").slideToggle("slow", function() {});                      
+         $(".menu").slideToggle("slow", function() {});
       });
    });
    // hide again
@@ -79,7 +81,7 @@ $(document).ready(function() {
   //advSearch(searchUrl);
 
   StartFacebook();
-   
+
 });
 
 function StartFacebook(){
@@ -125,8 +127,21 @@ function StartFacebook(){
   //updateFacebookPage(2);
 }
 
+/*
+var imgProut = document.getElementById('paintingImg');
+imgProut.onload = function() {
+  console.log("PROUTTT")
+  if(imgProut.width > imgProut.height) {
+      imgProut.width = "300px";
+      imgProut.height = "auto";
+  }
+
+};
+*/
+
 function updateFacebookPage(faceId){
   ResetPage();
+
   var tempFacesArray = facesData.slice(0);
 
   var indexesInPainting = getPaintingById(getFaceById(faceId)[0].paintingId)[0].facesIds.slice(0);
@@ -246,6 +261,7 @@ function updateHome(mainPainting){
   }
   else{
       d3.select("#paintingTitle").html(mainPainting.title);
+      console.log(mainPainting);
   }
 }
 
@@ -275,8 +291,9 @@ function updateFriends(otherFaces, mainPainting, randomFacesArray){
     }
 }
 
+
 function fillSvgWithSvgs(svgId, facesData, nbPerTab, relativePadding, idPrefix){
-  var bigWidth = $(svgId).width();
+  var bigWidth = $(svgId).width() * 0.95;
   var gap = bigWidth / (nbPerTab);
   //var smallWidth = Math.floor(gap - 2 * relativePadding * gap);
   var smallWidth = gap;
@@ -313,6 +330,9 @@ function fillSvgWithFace(svgD3, faceW, face, webImage, clickable){
   if (clickable){
     svgD3.classed("brightness", "true");
   }
+
+
+
   svgD3.append("svg:image")
          .attr("x", function(){
            var offsetLeft = face.topLeftX * faceW / face.width -  faceW * (ratioAroundHead - 1) / 2;
@@ -328,6 +348,7 @@ function fillSvgWithFace(svgD3, faceW, face, webImage, clickable){
          .attr("height", function(){
            return webImage.height * faceW / face.width;
          })
+         .style("fill", "#000000")
          .attr("xlink:href", function(){
             if (webImage == null){
               return "Data/Copyright.PNG";

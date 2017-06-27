@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Masterpieces</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+    <header class="exhibitHeader">
+
+         <!-- LEFT: title, drop down description, social media sharing icons -->
+         <span class="caret_expanded information">&#9432;</span>
+         <span class="caret_closed information">&#9432;</span>
+
+        <h1 class="pageTitle">Masterpieces</h1>
+        <div class="pageDescription">
+        <div class="pageDescriptionColumn">
+           <h5>Explanations coming soon.</h5>
+        </div>
+        <div class="pageDescriptionColumn">
+           <h6></h6>
+        </div>
+        <div class="end"></div>
+        </div>
+
+        <!-- RIGHT: drop down to navigate home or to other projects -->
+        <button class="hamburger">&#9776;</button>
+        <button class="cross">&#735;</button>
+        <!-- menu that drops down -->
+        <div class="menu">
+        <ul>
+           <a href="home.html"><li>HOME</li></a>
+           <a href="iceberg.html"><li>BEYOND THE EXHIBITS</li></a>
+           <!-- <a href="masterpieces.html"><li>MASTERPIECES</li></a> -->
+           <a href="hague.html"><li>HAGUE SCHOOL</li></a>
+           <a href="facesRijks.html"><li>FACES OF THE RIJKS</li></a>
+
+        </ul>
+        </div>
+    </header>
+
+<body>
+    <div id="masterpieceSelection">
+      <div id="buttonContainer">
+        <button id="nextPainting" onclick="displayRandomMasterPiece()">NEXT PAINTING</button>
+      </div>
+    </div>
+
+    <svg width = "1400" height="800" id ="svgContainer"> <!-- contains map and painting -->
+      <rect x="0" y="0" width="3000" height="3000" style="fill: black;"></rect>
+    </svg>
+
+    <div id="hiddenCanvas">
+      <canvas style="display: none;" id="canvas"></canvas>
+    </div>
+
+<script type="application/javascript" src="masterPieces.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-101001275-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+</html>

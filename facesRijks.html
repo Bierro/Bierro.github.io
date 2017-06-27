@@ -15,11 +15,11 @@
 
 
 
-      <header>
+      <header class="exhibitHeader">
 
          <!-- LEFT: title, drop down description, social media sharing icons -->
-         <i class="caret_expanded "></i>
-         <i class="caret_closed"></i>
+         <span class="caret_expanded information">&#9432;</span>
+         <span class="caret_closed information">&#9432;</span>
 
          <h1 class="pageTitle">Faces of the Rijks</h1>
          <div class="pageDescription">
@@ -38,9 +38,9 @@
          <!-- menu that drops down -->
          <div class="menu">
             <ul>
-               <a href="index.html"><li>HOME</li></a>
+               <a href="home.html"><li>HOME</li></a>
                <a href="iceberg.html"><li>BEYOND THE EXHIBITS</li></a>
-               <a href="#"><li>MASTERPIECES</li></a>
+               <a href="masterpieces.html"><li>MASTERPIECES</li></a>
                <a href="hague.html"><li>HAGUE SCHOOL</li></a>
             </ul>
          </div>
@@ -63,7 +63,7 @@
 
 
 
-
+<!--
       <div id="profile">
         <div id="profilePictureOverlay">
           <div id="profileInfo">
@@ -77,9 +77,28 @@
           </svg>
         </div>
       </div>
+-->
+
+      <div id="profile2">
+        <div id="profilePicContainer">
+          <div id="profilePic">
+            <svg id="profilePicSvg">
+            </svg>
+          </div>
+
+        </div>
+        <div id="profileInfo2">
+          Birthday: <span id="birthday"></span>
+          <br />
+          Skin texture: <span id="skin"></span>
+          <br />
+          Left in the back room: <span id="onDisplay"></span>
+        </div>
+
+      </div>
+
+
       <div class="tabs">
-
-
         <div id="friends" class="tabDiv">
           <div id="friendsTitle" class="tabTitle">
             <h3>FRIENDS</h3>
@@ -91,20 +110,18 @@
               <div id="closeFriendsSvgs" width="100" height="100">
               </div>
             </div>
-            <br />
             <!-- Distant Relations -->
-            <br />
             <div id="distantRelationsSvgs" width="100%", height="1000">
             </div>
           </div>
         </div>
 
 
-        <div id="home" class="tabDiv">
-          <div id="homeTitle" class="tabTitle">
+        <div id="photos" class="tabDiv">
+          <div id="photosTitle" class="tabTitle">
             <h3>PHOTOS</h3>
           </div>
-          <div id="homeContent" class="tabContent">
+          <div id="photosContent" class="tabContent">
             <div id="paintingPic">
               <img id="paintingImg" height="100%" />
             </div>
@@ -120,7 +137,6 @@
           </div>
 
           <div id="aboutContent" class="tabContent">
-            <br/>
             Estimated ethnicity: <span id="ethnicity"></span>
             <br />
             Estimated Gender: <span id="gender"></span>
@@ -129,15 +145,16 @@
             <br />
             Intercheek distance: <span id="faceWidth"></span>
 
-            <div id="aboutMyMaker">ABOUT MY MAKER</div>
+            <div id="aboutMyMaker">
+              <h3>ABOUT MY MAKER</h3>
+            </div>
 
             <div id="myMakerContent">
-              <br />
               Name: <span id="makerName"></span>
               <br />
-              Birth: <span id="makerBirthDate"></span> in <span id="makerBirthPlace"></span>
+              Birth: <span id="makerBirthDate"></span> <span id="in">in </span><span id="makerBirthPlace"></span>
               <br />
-              Death: <span id="makerDeathDate"></span> in <span id="makerDeathPlace"></span>
+              Death: <span id="makerDeathDate"></span> <span id="in">in </span><span id="makerDeathPlace"></span>
               <br />
               Nationality: <span id="makerNationality"></span>
               <br />
@@ -147,7 +164,17 @@
 
       </div>
     </div>
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-101001275-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 <script type="application/javascript" src="facesRijks.js"></script>
 </body>
 

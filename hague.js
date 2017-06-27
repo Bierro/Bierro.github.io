@@ -47,7 +47,7 @@ secondGenCheckbox.onchange = function(){
   }
 }
 
-var imagesFolder = "Data/Images/"
+var imagesFolder = "Data/ImagesResized20/"
 
 var nbWithoutDim = 0;
 
@@ -102,6 +102,14 @@ var painters = [//Wikipedia Forerunners
                 ];
 
 
+d3.json(colorsDataUrl, function (json) {
+  console.log("COLORS DATA");
+  console.log(json);
+  colorsData = json;
+  // run code
+  RunAll();
+});
+
 function getColorById(colorArray,id) {
   return colorArray.filter(
       function(element){
@@ -112,16 +120,6 @@ function getColorById(colorArray,id) {
 
 
 $(document).ready(function() {
-  console.log("Looking for colors");
-  d3.json(colorsDataUrl, function (json) {
-    console.log("COLORS DATA");
-    console.log(json);
-    colorsData = json;
-    console.log(getColorById(colorsData, "sk-a-4197")[0].colors);
-    // run code
-    RunAll();
-  });
-
   d3.select("#paintingTitle").style("color", "black");
   d3.select("#paintingArtist").style("color", "black");
 
@@ -176,11 +174,13 @@ $(document).ready(function() {
    /* HEADER LEFT: TITLE & DESCRIPTION DROP DOWN */
    // start hidden
    $(".caret_closed").hide();
+   $(".pageDescription").hide();
    // hide description drop down
    $(".caret_expanded").click(function() {
       $(".caret_expanded").hide();
       $(".caret_closed").show();
       $(".pageDescription").slideToggle("slow", function() {});
+      $(".information").css("color", "white");
    });
    // drop down
    $(".caret_closed" ).click(function() {
